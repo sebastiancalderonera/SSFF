@@ -1,30 +1,23 @@
 (function () {
-    function openPopup() {
-        var fioriUrl = "https://serviciossap.colombina.com/sap/bc/ui5_ui5/sap/zui5_vacaciones/index.html?sap-client=300";
+    // Crear el contenedor del iframe
+    var container = document.createElement("div");
+    container.style.width = "1100px";
+    container.style.height = "800px";
+    container.style.border = "1px solid #ccc";
+    container.style.margin = "0 auto";
+    container.style.borderRadius = "8px";
+    container.style.overflow = "hidden";
 
-        var width = 1100;
-        var height = 800;
+    // Crear el iframe
+    var iframe = document.createElement("iframe");
+    iframe.src = "https://serviciossap.colombina.com/sap/bc/ui5_ui5/sap/zui5_vacaciones/index.html?sap-client=300";
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "0";
 
-        var left = (window.screen.width - width) / 2;
-        var top = (window.screen.height - height) / 2;
+    // Agregar iframe al contenedor
+    container.appendChild(iframe);
 
-        window.open(
-            fioriUrl,
-            "popupFioriVacaciones",
-            "popup=yes,toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable=yes" +
-            ",width=" + width +
-            ",height=" + height +
-            ",top=" + top +
-            ",left=" + left
-        );
-    }
-
-    // Crear un botón dentro de la Card / página:
-    var button = document.createElement("button");
-    button.textContent = "Abrir Vacaciones";
-    button.style.padding = "10px 20px";
-    button.style.fontSize = "16px";
-    button.onclick = openPopup;
-
-    document.body.appendChild(button);
+    // Agregar contenedor al body
+    document.body.appendChild(container);
 })();
